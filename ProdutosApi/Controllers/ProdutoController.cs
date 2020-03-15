@@ -82,6 +82,7 @@ namespace ProdutosApi.Controllers
         public IActionResult Find(int id)
         {
             Produto produto = _produtoRepository.Find(id);
+            if (produto == null) return StatusCode(500);
             return Ok(produto);
         }
 
